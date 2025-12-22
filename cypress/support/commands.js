@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('parseNumber', (selector) => {
+    cy.get(selector)
+      .invoke('text')
+      .then((text) => {
+        const cleanText = text.replace(/[^0-9.]/g, ''); //Remove everything, except digit or dot
+        const number = parseFloat(cleanText); //Convert text to number
+        return number;
+      })
+})
