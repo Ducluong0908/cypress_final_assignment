@@ -63,7 +63,7 @@ describe('template spec', () => {
       $prices.each((index, el) => {
         const $el = Cypress.$(el); //Wrap DOM element to jQuery object
 
-        if($el.find('ins').length > 0) { //Check if product has discount price
+        if($el.find('ins').length > 0) { //Check if product has discounted the price
           const text = $el.find('ins .woocommerce-Price-amount').text().trim(); //Get discounted price text
           const cleanText = text.replace(/[^0-9.]/g, ''); //remove unwanted characters
           priceList.push(parseFloat(cleanText)); //Convert text to number, then add the priceList array
