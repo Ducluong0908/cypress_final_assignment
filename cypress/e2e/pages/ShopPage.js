@@ -49,6 +49,10 @@ class ShopPage {
     clickViewBasket(){
         cy.get(this.viewBasketLink).click();
     }
+
+    navigateToHome(){
+        cy.get('.woocommerce-breadcrumb a').click();
+    }
 }
 
 export default ShopPage;
